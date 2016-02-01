@@ -15,10 +15,12 @@ public class CallingCard extends Card
     /**
      * Default constructor for objects of class CallingCard
      */
-    public CallingCard()
+    public CallingCard(String n, String cardNum, String pin)
     {
         // initialise instance variables
-        x = 0;
+        super(n);
+        this.cardNum = cardNum;
+        this.pin = pin;
     }
 
     /**
@@ -32,10 +34,10 @@ public class CallingCard extends Card
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public int sampleMethod(int y)
+    public String format()
     {
         // put your code here
-        return x+y;
+        return "Card Holder: " + getName() + "\nCard Number: " + cardNum + "\nPin: " + pin;
     }
 
 }

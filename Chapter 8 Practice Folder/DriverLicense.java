@@ -32,7 +32,7 @@ public class DriverLicense extends IDCard
      */
     public String format()
     {
-        return "Card holder: " + getName() + "\nID Number: " + idNumber + expYear;
+        return "Card holder: " + getName() + "\nID Number: " + getIDNum() + expYear;
     }
 
 }

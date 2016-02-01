@@ -32,11 +32,16 @@ public class IDCard extends Card
      */
     public String format()
     {
-        return "Card holder: " + getName() + "\nID Number: " + idNumber;
+        return "Card holder: " + super.getName() + "\nID Number: " + idNumber;
     }
 
     public String getName()
     {
-        return IDCard;
+        return super.getName();
+    }
+    
+    public String getIDNum()
+    {
+        return idNumber;
     }
 }
