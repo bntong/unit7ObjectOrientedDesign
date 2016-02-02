@@ -44,4 +44,14 @@ public class IDCard extends Card
     {
         return idNumber;
     }
+    
+    public String toString()
+    {
+        return  "IDCard[name=" + getName() + "]" + "[ID Number=" + idNumber + "]";
+    }
+    
+    public boolean equals(IDCard card1)
+    {
+        return super.equals(card1)&&this.idNumber==card1.getIDNum();
+    }
 }

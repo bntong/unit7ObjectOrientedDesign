@@ -39,5 +39,9 @@ public class CallingCard extends Card
         // put your code here
         return "Card Holder: " + getName() + "\nCard Number: " + cardNum + "\nPin: " + pin;
     }
-
+    
+    public boolean equals(CallingCard card1)
+    {
+        return super.equals(card1)&&this.idNumber==card1.getIDNum();
+    }
 }

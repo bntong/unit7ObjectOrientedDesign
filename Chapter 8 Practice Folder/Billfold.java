@@ -1,5 +1,4 @@
 
-
 /**
  * Write a description of class Billfold here.
  * 
@@ -45,7 +44,7 @@ public class Billfold extends Card
             card2 = meh;
         }
     }
-    
+
     /**
      * An example of a method - replace this comment with your own
      *  that describes the operation of the method
@@ -60,7 +59,17 @@ public class Billfold extends Card
     public String formatCards()
     {
         // put your code here
-        return y;
+        return "Card 1: \n" + card1.format() + "\n\nCard 2: \n" + card2.format();
     }
 
+    public int getExpiredCardCount()
+    {
+        int count = 0;
+        if(card1.isExpired())
+        count++;
+        if(card2.isExpired())
+        count++;
+        
+        return count;
+    }
 }
