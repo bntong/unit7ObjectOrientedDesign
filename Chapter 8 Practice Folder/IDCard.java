@@ -39,19 +39,27 @@ public class IDCard extends Card
     {
         return super.getName();
     }
-    
+
     public String getIDNum()
     {
         return idNumber;
     }
-    
+
     public String toString()
     {
         return  "IDCard[name=" + getName() + "]" + "[ID Number=" + idNumber + "]";
     }
-    
-    public boolean equals(IDCard card1)
+
+    // overried the equals method defined in Card as well as Object
+    public boolean equals(Object card1)
     {
-        return super.equals(card1)&&this.idNumber==card1.getIDNum();
+        if( this.getClass() == card1.getClass() )
+        {
+            // first checks if thei object and the other object are equal from the perspective of 
+            // the super class
+            return super.equals(card1)&&this.idNumber==((IDCard) card1).getIDNum();
+        }
+        
+        return false;
     }
 }

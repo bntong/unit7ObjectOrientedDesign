@@ -40,8 +40,20 @@ public class CallingCard extends Card
         return "Card Holder: " + getName() + "\nCard Number: " + cardNum + "\nPin: " + pin;
     }
     
-    public boolean equals(CallingCard card1)
+    public String getCardNum()
     {
-        return super.equals(card1)&&this.idNumber==card1.getIDNum();
+        return this.cardNum;
+    }
+    
+    public boolean equals(Object card1)
+    {
+        if( this.getClass() == card1.getClass() )
+        {
+            // first checks if thei object and the other object are equal from the perspective of 
+            // the super class
+            return super.equals(card1)&&this.cardNum==((CallingCard) card1).getCardNum();
+        }
+        
+        return false;
     }
 }

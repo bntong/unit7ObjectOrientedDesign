@@ -59,14 +59,19 @@ public class DriverLicense extends IDCard
     {
         return "DriverCard[name=" + getName() + "]" + "[ID Number=" + getIDNum() + "]" + "[ExpYear=" + expYear + "]";
     }
-    
+
     public int getExpYear()
     {
         return expYear;
     }
-    
-    public boolean equals(DriverLicense card1)
+
+    public boolean equals(Object card1)
     {
-        return super.equals(card1)&&this.expYear==card1.getExpYear();
+        if(this.getClass() == card1.getClass())
+        {
+            return super.equals(card1)&&this.expYear==((DriverLicense) card1).getExpYear();
+        }
+        
+        return false;
     }
 }
