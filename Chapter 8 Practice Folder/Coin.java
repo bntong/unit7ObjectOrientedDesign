@@ -1,40 +1,68 @@
-
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
- * Write a description of class Coin here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+A coin with a monetary value.
  */
-public class Coin
+public class Coin implements Comparable<Coin>
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    private double value;
+    private String name;
 
     /**
-     * Default constructor for objects of class Coin
+    Constructs a coin.
+    @param aValue the monetary value of the coin
+    @param aName the name of the coin
      */
-    public Coin()
-    {
-        // initialise instance variables
-        x = 0;
+    public Coin(double aValue, String aName) 
+    { 
+        value = aValue; 
+        name = aName;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+    Gets the coin value.
+    @return the value
      */
-    public int sampleMethod(int y)
+    public double getValue() 
     {
-        // put your code here
-        return x+y;
+        return value;
     }
 
+    /**
+    Gets the coin name.
+    @return the name
+     */
+    public String getName() 
+    {
+        return name;
+    }
+
+    public int compareTo( Coin other )
+    {
+        Coin otherCoin = (Coin)other;
+        return (int)(this.value - otherCoin.value);
+        
+//         if(this.value > otherCoin.value)
+//             return 1;
+//         else if(this.value < otherCoin.value)
+//             return -1;
+//         else    
+//             return 0;
+    }
+    
+    public static void main(String[] args)
+    {
+        ArrayList<Coin> list = new ArrayList<Coin>();
+        list.add( new Coin( 0.10, "dime" ));
+        list.add( new Coin( 0.25, "quarter" ));
+        list.add( new Coin( 0.01, "penny" ));
+        list.add( new Coin( 0.05, "nickel" ));
+        
+        System.out.println( "original list: " + list );
+        
+        Collections.sort( list );
+        
+        System.out.println( "sorted list: " + list );
+    }
 }
