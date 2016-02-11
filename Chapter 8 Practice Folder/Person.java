@@ -5,7 +5,7 @@
  * @author (your name 
  * @version (a version number or a date)
  */
-public class Person implements Comparable
+public class Person implements Comparable<Person>
 {
     private String name;
 
@@ -14,7 +14,7 @@ public class Person implements Comparable
         this.name = name;
     }
 
-    public int compareTo(Object person)
+    public int compareTo(Person person)
     {
         if(name.compareTo(((Person)person).getName())<0)
         {return -1;}
