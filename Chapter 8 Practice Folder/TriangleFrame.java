@@ -15,7 +15,17 @@ public class TriangleFrame extends JFrame
     
     private TriangleComponent scene;
     
-    class MousePressListener implements MouseListener
+    public TriangleFrame()
+    {
+        scene = new TriangleComponent(10,10);
+        add(scene);
+        
+        MouseListener listener = new MousePressListener();
+        scene.addMouseListener(listener);
+        
+        setSize(FRAME_WIDTH , FRAME_HEIGHT);
+    }
+    class MousePressListener implements MouseListener 
     {
         public void mousePressed(MouseEvent event)
         {
@@ -30,14 +40,5 @@ public class TriangleFrame extends JFrame
         }
         
     }
-    public TriangleFrame()
-    {
-        scene = new TriangleComponent();
-        add(scene);
-        
-        MouseListener listener = new MousePressListener();
-        scene.addMouseListener(listener);
-        
-        setSize(FRAME_WIDTH , FRAME_HEIGHT);
-    }
+  
 }

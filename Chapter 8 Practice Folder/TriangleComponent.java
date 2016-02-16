@@ -11,15 +11,14 @@ import javax.swing.JComponent;
 public class TriangleComponent extends JComponent
 {
     private static final int BOX_WIDTH = 1;
-    private static final int BOX_Y
-    private static final int POINT_Y = 1;
+    private static final int BOX_HEIGHT = 1;
+       
+    private Rectangle point;
     
-    private Point2D.Double point;
     
-    
-    public TriangleComponent()
+    public TriangleComponent(int box_x, int box_y)
     {
-        point = new Point2D.Double(POINT_X , POINT_Y);
+        point = new Rectangle(box_x, box_y, BOX_WIDTH, BOX_HEIGHT);
     }
     
     public void paintComponent(Graphics g)
