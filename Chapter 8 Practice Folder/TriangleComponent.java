@@ -10,13 +10,15 @@ import javax.swing.JComponent;
  */
 public class TriangleComponent extends JComponent
 {
-    private static final int BOX_WIDTH = 1;
-    private static final int BOX_HEIGHT = 1;
-       
+    private static final int BOX_WIDTH = 10;
+    private static final int BOX_HEIGHT = 10;
+    private static int box_x;
+    private static int box_y;
+    
     private Rectangle point;
     
     
-    public TriangleComponent(int box_x, int box_y)
+    public TriangleComponent()
     {
         point = new Rectangle(box_x, box_y, BOX_WIDTH, BOX_HEIGHT);
     }
@@ -25,5 +27,12 @@ public class TriangleComponent extends JComponent
     {
         Graphics2D g2 = (Graphics2D) g;
         g2.draw(point);
+    }
+    
+    public void addPoint(int x, int y)
+    {
+       this.box_x = x;
+       this.box_y = y;
+       System.out.println(x);
     }
 }

@@ -1,4 +1,5 @@
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+import java.awt.*;
 
 /**
  * Write a description of class MouseListener here.
@@ -8,11 +9,13 @@ import java.awt.event.MouseEvent;
  */
 public interface MouseListener
 {
-    public void mouseEntered(MouseEvent event);
+    void mouseEntered(MouseEvent event);
 
-    public void mouseExited(MouseEvent event) ;
+    void mouseExited(MouseEvent event) ;
 
-    public void mousePressed(MouseEvent event) ;
+    void mousePressed(MouseEvent event) ;
 
-    public void mouseReleased(MouseEvent event) ;
+    void mouseReleased(MouseEvent event);
+    
+    void mouseClicked(MouseEvent event);
 }
