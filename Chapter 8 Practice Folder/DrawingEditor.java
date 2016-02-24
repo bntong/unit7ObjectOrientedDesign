@@ -12,20 +12,18 @@ public class DrawingEditor extends JFrame
     private static final int FRAME_WIDTH = 500;
     private static final int FRAME_HEIGHT = 500;
 
-    private JFrame frame;
     private ControlPanel controls;
     private static DrawingEditor editor;
     public DrawingEditor()
     {
         this.controls = new ControlPanel();
 
-        this.frame = new JFrame();
-
-        this.frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame.add(controls);
-        this.frame.setTitle("Drawing Editor");
-        this.frame.setVisible(true);
+        this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.add(controls);
+        this.setTitle("Drawing Editor");
+        
+        this.setVisible(true);
     }
 
     public static void main(String[] args)

@@ -9,21 +9,26 @@ import javax.swing.*;
  */
 public class ControlPanel extends JPanel
 {
-    private JPanel panel;
     private JButton pickColor;
     private JButton addCircle;
     private JButton addSquare;
+    private JPanel bottomPanel;
+    private BorderLayout borderLayout;
     
     public ControlPanel()
-    {
-        this.panel = new JPanel();
+    {                
+        this.bottomPanel = new JPanel();
+        this.borderLayout = new BorderLayout();
         
         this.pickColor = new JButton("Pick Color");
         this.addCircle = new JButton("Add Circle");
         this.addSquare = new JButton("Add Square");
         
-        this.panel.add(this.pickColor);
-        this.panel.add(this.addCircle);
-        this.panel.add(this.addSquare);
+        this.bottomPanel.add(this.pickColor);
+        this.bottomPanel.add(this.addCircle);
+        this.bottomPanel.add(this.addSquare);
+        
+        this.setLayout(borderLayout);
+        this.add(bottomPanel, BorderLayout.SOUTH);
     }
 }
