@@ -18,7 +18,7 @@ public class ControlPanel extends JPanel
     public ControlPanel()
     {                
         this.bottomPanel = new JPanel();
-        this.borderLayout = new BorderLayout();
+        this.borderLayout = ew BorderLayout();
         
         this.pickColor = new JButton("Pick Color");
         this.addCircle = new JButton("Add Circle");
