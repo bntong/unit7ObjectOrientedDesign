@@ -30,4 +30,6 @@ public class DrawingEditor extends JFrame
     {
         editor = new DrawingEditor();
     }
+    
+    
 }
