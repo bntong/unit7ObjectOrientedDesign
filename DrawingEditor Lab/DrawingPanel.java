@@ -15,6 +15,7 @@ public class DrawingPanel extends JPanel
     /** description of instance variable x (add comment for each instance variable) */ 
     
     private Color color;
+    private Dimension preferredSize;
     
     class MousePressListener implements MouseListener
     {
@@ -58,7 +59,6 @@ public class DrawingPanel extends JPanel
     public DrawingPanel()
     {
         ArrayList<Shape> shapes;
-        DrawingPanel scene = new DrawingPanel();
         
         MouseListener listener = new MousePressListener();
         addMouseListener(listener);
@@ -66,6 +66,7 @@ public class DrawingPanel extends JPanel
         MouseMotionListener motionListener = new MouseMoveListener();
         addMouseMotionListener(motionListener);
         
+        JColorChooser colorChooser = new JColorChooser();
     }
     
     public Color getColor()          
@@ -75,7 +76,7 @@ public class DrawingPanel extends JPanel
     
     public Dimension getPreferredSize()
     {
-        
+        return this.preferredSize;
     }
     
     public void pickColor()
@@ -100,3 +101,4 @@ public class DrawingPanel extends JPanel
     
     
 }
+
