@@ -10,7 +10,7 @@ import java.awt.geom.*;
 public class Circle extends Shape
 {
     /** description of instance variable x (add comment for each instance variable) */
-
+    
 
     /**
      * Default constructor for objects of class Circle

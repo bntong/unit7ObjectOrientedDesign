@@ -15,7 +15,8 @@ public class DrawingPanel extends JPanel
     /** description of instance variable x (add comment for each instance variable) */ 
     
     private Color color;
-    private Dimension preferredSize;
+    private Dimension preferredSize = new Dimension(500, 500);
+    private JColorChooser colorChooser;
     
     class MousePressListener implements MouseListener
     {
@@ -74,14 +75,10 @@ public class DrawingPanel extends JPanel
          return this.color;
     }
     
-    public Dimension getPreferredSize()
-    {
-        return this.preferredSize;
-    }
-    
     public void pickColor()
     {
-        
+        colorChooser = new JColorChooser();
+        colorChooser.setVisible(true);
     }
     
     public void addCircle()

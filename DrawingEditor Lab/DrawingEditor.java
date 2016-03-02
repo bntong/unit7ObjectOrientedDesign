@@ -12,12 +12,11 @@ public class DrawingEditor extends JFrame
     private static final int FRAME_WIDTH = 500;
     private static final int FRAME_HEIGHT = 500;
     
-    private DrawingPanel canvas;
+    private DrawingPanel canvas = new DrawingPanel();
     private ControlPanel controls;
     private static DrawingEditor editor;
     public DrawingEditor()
     {
-        this.canvas = new DrawingPanel();
         this.controls = new ControlPanel(this.canvas);
 
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
