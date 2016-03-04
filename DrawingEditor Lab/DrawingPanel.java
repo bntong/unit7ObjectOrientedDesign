@@ -3,6 +3,7 @@ import java.awt.geom.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import java.util.Random;
 
 /**
  * Write a description of class DrawingPanel here.
@@ -14,10 +15,10 @@ public class DrawingPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */ 
     
-    private Color color;
+    private Color initialColor;
     private Dimension preferredSize = new Dimension(500, 500);
-    private JColorChooser colorChooser;
-    
+    private JColorChooser colorChooser = new JColorChooser();
+    private ArrayList<Shape> shapes = new ArrayList<Shape>();
     class MousePressListener implements MouseListener
     {
         public void mouseEntered(MouseEvent event)
@@ -59,31 +60,30 @@ public class DrawingPanel extends JPanel
      */
     public DrawingPanel()
     {
-        ArrayList<Shape> shapes;
-        
         MouseListener listener = new MousePressListener();
         addMouseListener(listener);
         
         MouseMotionListener motionListener = new MouseMoveListener();
         addMouseMotionListener(motionListener);
-        
-        JColorChooser colorChooser = new JColorChooser();
+       
     }
     
     public Color getColor()          
     {
-         return this.color;
+         return this.initialColor;
     }
     
     public void pickColor()
-    {
-        colorChooser = new JColorChooser();
-        colorChooser.setVisible(true);
+    { 
+        Color color=JColorChooser.showDialog(this,"Select a color",this.initialColor);  
+        this.initialColor = color; 
     }
     
-    public void addCircle()
+    public void addCircle(int x, int y)
     {
-        
+        Point2D.Double point = new Point2D.Double(x, y);
+        Circle circle = new Circle(point, 50, this.initialColor);
+        this.shapes.add(circle);
     }
     
     public void addSquare()
@@ -93,7 +93,8 @@ public class DrawingPanel extends JPanel
     
     public void paintComponent(Graphics g)        
     {
-        
+        Random random = new Random();
+        g.drawOval(0, 0, random.nextInt(40), random.nextInt(40));
     }
     
     

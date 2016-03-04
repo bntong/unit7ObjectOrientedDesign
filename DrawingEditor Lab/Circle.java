@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.*;
+import javax.swing.*;
 
 /**
  * Write a description of class Circle here.
@@ -27,7 +28,8 @@ public class Circle extends Shape
 
     void draw(Graphics2D g2, boolean filled)
     {
-        
+        Ellipse2D.Double circle = new Ellipse2D.Double(100,100,100,100);
+        g2.fill(circle);
     }
 
 }
