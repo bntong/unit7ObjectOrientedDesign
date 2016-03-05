@@ -9,24 +9,29 @@ import javax.swing.*;
  */
 public class DrawingEditor extends JFrame
 {
+    // instance variables - replace the example below with your own
+    private DrawingPanel canvas;
+    private ControlPanel controls;
+    
+    private static DrawingEditor editor;
+    
     private static final int FRAME_WIDTH = 500;
     private static final int FRAME_HEIGHT = 500;
-    
-    private DrawingPanel canvas = new DrawingPanel();
-    private ControlPanel controls;
-    private static DrawingEditor editor;
+    /**
+     * Constructor for objects of class DrawingEditor
+     */
     public DrawingEditor()
     {
-        this.controls = new ControlPanel(this.canvas);
-        
+        this.setTitle("Drawing Editor");
         this.setLayout(new BorderLayout());
-        
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        canvas = new DrawingPanel();
+        controls = new ControlPanel(canvas);
+        
         this.add(canvas, BorderLayout.CENTER);
         this.add(controls, BorderLayout.SOUTH);
-        this.setTitle("Drawing Editor");
-        
         
         this.setVisible(true);
     }
@@ -35,6 +40,4 @@ public class DrawingEditor extends JFrame
     {
         editor = new DrawingEditor();
     }
-    
-    
 }

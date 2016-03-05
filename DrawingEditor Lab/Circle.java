@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.geom.*;
 import javax.swing.*;
+import java.lang.Math;
 
 /**
  * Write a description of class Circle here.
@@ -11,7 +12,6 @@ import javax.swing.*;
 public class Circle extends Shape
 {
     /** description of instance variable x (add comment for each instance variable) */
-    
 
     /**
      * Default constructor for objects of class Circle
@@ -23,13 +23,29 @@ public class Circle extends Shape
 
     boolean isInside(Point2D.Double point)
     {
-        return false;
+        double pointX = point.getX();
+        double pointY = point.getY();
+        Point2D.Double center = super.getCenter();
+        double result = Math.sqrt(Math.pow((pointX - center.getX()), 2) + Math.pow((pointY - center.getY()), 2));
+
+        if(result <= super.getRadius())
+            return true;
+        else
+            return false;
     }
 
-    void draw(Graphics2D g2, boolean filled)
+    void draw(Graphics g2, boolean filled)
     {
-        Ellipse2D.Double circle = new Ellipse2D.Double(100,100,100,100);
-        g2.fill(circle);
+        double radius = super.getRadius();
+        Point2D.Double center = super.getCenter();
+        g2.setColor(super.getColor());
+        if(filled)        
+        {
+            g2.fillOval((int)center.getX()-(int)super.getRadius(),(int)center.getY()-(int)super.getRadius(),(int)radius*2, (int)radius*2);
+        }
+        else
+        {
+            g2.drawOval((int)center.getX()-(int)super.getRadius(),(int)center.getY()-(int)super.getRadius(),(int)radius*2, (int)radius*2);
+        }
     }
-
 }

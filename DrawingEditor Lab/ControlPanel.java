@@ -19,11 +19,11 @@ public class ControlPanel extends JPanel
     
     public ControlPanel(DrawingPanel canvas)
     {                
-        this.borderLayout = new BorderLayout();
         this.canvas = canvas;
         
         this.pickColor = new JButton("Pick Color");
         this.currentColor = new JPanel();
+        currentColor.setBackground(canvas.getColor());
         this.addCircle = new JButton("Add Circle");
         this.addSquare = new JButton("Add Square");
         
@@ -31,13 +31,10 @@ public class ControlPanel extends JPanel
         this.addSquare.addActionListener(new SquareAdder());
         this.pickColor.addActionListener(new ColorChooser());
         
-        canvas.add(this.pickColor);
-        canvas.add(this.currentColor);
-        canvas.add(this.addCircle);
-        canvas.add(this.addSquare);
-        
-        this.setLayout(borderLayout);
-        this.add(canvas, BorderLayout.SOUTH);
+        this.add(this.pickColor);
+        this.add(this.currentColor);
+        this.add(this.addCircle);
+        this.add(this.addSquare);
         
     }
     
@@ -56,8 +53,8 @@ public class ControlPanel extends JPanel
         
         public void actionPerformed(ActionEvent event)
         {
-            canvas.addCircle(100, 100);
-            repaint();
+            canvas.addCircle();
+            canvas.repaint();
         }
     }
     
@@ -67,6 +64,7 @@ public class ControlPanel extends JPanel
         public void actionPerformed(ActionEvent event)
         {
             canvas.addSquare();
+            canvas.repaint();
         }
     }
 }

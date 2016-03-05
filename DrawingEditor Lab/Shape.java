@@ -36,7 +36,7 @@ public abstract class Shape
 
     void move(double x, double y)
     {
-        
+        this.center.setLocation(this.center.getX() + x, this.center.getY() + y);       
     }
 
     void setRadius(double r)
@@ -54,8 +54,13 @@ public abstract class Shape
         return false;
     }
 
-    void draw(Graphics2D g2, boolean filled)
+    void draw(Graphics g2, boolean filled)
     {
         
+    }
+    
+    Color getColor()
+    {
+        return this.color;
     }
 }

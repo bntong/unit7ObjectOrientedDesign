@@ -32,11 +32,6 @@ public class Square extends Shape
         return this.radius;
     }
 
-    void move(double x, double y)
-    {
-
-    }
-
     void setRadius(double r)
     {
 
@@ -44,7 +39,15 @@ public class Square extends Shape
 
     boolean isInside(Point2D.Double point)
     {
-        return false;
+        double pointX = point.getX();
+        double pointY = point.getY();
+        Point2D.Double center = super.getCenter();
+        int radius = (int)super.getRadius();
+        if(pointX >= (center.getX() - radius) && pointX <= (center.getX() + radius)&& 
+           pointY >= (center.getY() - radius) && pointY <= (center.getY() + radius))
+            return true;
+        else
+            return false;
     }
 
     boolean isOnBorder(Point2D.Double point)
@@ -52,9 +55,19 @@ public class Square extends Shape
         return false;
     }
 
-    void draw(Graphics2D g2, boolean filled)
+    void draw(Graphics g2, boolean filled)
     {
-
+        double radius = super.getRadius();
+        Point2D.Double center = super.getCenter();
+        g2.setColor(super.getColor());
+        if(filled)        
+        {
+            g2.fillRect((int)center.getX()-(int)super.getRadius(),(int)center.getY()-(int)super.getRadius(),(int)radius*2, (int)radius*2);
+        }
+        else
+        {
+            g2.drawRect((int)center.getX()-(int)super.getRadius(),(int)center.getY()-(int)super.getRadius(),(int)radius*2, (int)radius*2);
+        }
     }
 
 }
