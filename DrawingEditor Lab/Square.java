@@ -2,17 +2,13 @@ import java.awt.*;
 import java.awt.geom.*;
 
 /**
- * Write a description of class Square here.
+ * A Square class, derived from the abstract Shape class and draws a square.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Brian Tong) 
+ * @version (4 March 2016)
  */
 public class Square extends Shape
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private Point2D.Double center;
-    private double radius;
-    private Color color;
 
     /**
      * Default constructor for objects of class Square
@@ -22,39 +18,47 @@ public class Square extends Shape
         super(center, radius, color);
     }
 
-    Point2D.Double getCenter()
-    {
-        return this.center;
-    }
-
-    double getRadius()
-    {
-        return this.radius;
-    }
-
-    void move(double x, double y)
-    {
-
-    }
-
-    void setRadius(double r)
-    {
-
-    }
-
     boolean isInside(Point2D.Double point)
     {
-        return false;
+        // the x coordinate of the mouse at its current position
+        double pointX = point.getX();
+        // the y coordinate of the mouse at its current position        
+        double pointY = point.getY();
+        // calls the getCenter method of the Shape class and gets the center of the shape
+        Point2D.Double center = super.getCenter();
+        // radius of the square
+        int radius = (int)super.getRadius();
+        // returns true if the mouse is inside the square, false if the mouse is not
+        if(pointX >= (center.getX() - radius) && pointX <= (center.getX() + radius)&& 
+           pointY >= (center.getY() - radius) && pointY <= (center.getY() + radius))
+            return true;
+        else
+            return false;
     }
 
-    boolean isOnBorder(Point2D.Double point)
+    /**
+     * draws the square
+     * 
+     * @param   g2      graphics class
+     *          filled  a boolean stating whether or not the shape should be filled
+     */
+    void draw(Graphics g2, boolean filled)
     {
-        return false;
-    }
-
-    void draw(Graphics2D g2, boolean filled)
-    {
-
+        // gets the radius of the circle 
+        double radius = super.getRadius();
+        // gets the center of the circle
+        Point2D.Double center = super.getCenter();
+        // sets the color of the circle 
+        g2.setColor(super.getColor());
+        // draws a filled square if the square is not selected, and an outline if the square is selected
+        if(filled)        
+        {
+            g2.fillRect((int)center.getX()-(int)super.getRadius(),(int)center.getY()-(int)super.getRadius(),(int)radius*2, (int)radius*2);
+        }
+        else
+        {
+            g2.drawRect((int)center.getX()-(int)super.getRadius(),(int)center.getY()-(int)super.getRadius(),(int)radius*2, (int)radius*2);
+        }
     }
 
 }
